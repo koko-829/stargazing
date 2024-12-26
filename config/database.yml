@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: db
+  username: postgres
+  password: password
+
+development:
+  <<: *default
+  database: stargazing_development
+
+test:
+  <<: *default
+  database: stargazing_test
+
+production:
+  <<: *default
+  database: stargazing_production
+  username: stargazing
+  password: <%= ENV["STARGAZING_DATABASE_PASSWORD"] %>
