@@ -1,0 +1,50 @@
+.loader {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  span {
+    position: absolute;
+    border: 2px solid #68b8ff5c;
+    width: 100%;
+    height: 100%;
+    animation: animate 5s linear infinite both;
+  }
+
+  span:nth-child(1){
+    //border-radius:28% 72% 46% 54% / 78% 28% 72% 22%      ;
+  }
+
+  span:nth-child(2){
+    animation-direction: reverse;
+    //border-radius:57% 43% 35% 65% / 68% 61% 39% 32%   ;
+  }
+
+  // span:nth-child(3){
+  //   animation-delay: 3s;
+  //   //border-radius:47% 53% 66% 34% / 68% 21% 79% 32%   ;
+  // }
+}
+
+// loaderがloadedクラスになった時に、opacityを0にして、見えなくする
+.loaded {
+  // 要素が透明になる=見えなくなる
+  opacity: 0;
+  // 0.8秒かけて、見えなくなるようにする。opacityを指定することで、0までゆっくり透明になる。
+  transition: opacity 0.3s;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+

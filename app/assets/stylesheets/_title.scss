@@ -1,6 +1,6 @@
 // サンプルとして使用するタイトルのフォントのスタイル
 
-#title {
+.title {
   // bodyを親要素として、中央に配置するためのスタイル
   position: absolute;
   top: 50%;
@@ -15,14 +15,13 @@
   font-family: 'Lato', sans-serif;
   // font-weightとfont-sizeの指定
   font-weight: 300;
-  font-size: 5rem;
+  font-size: 7rem;
   // 文字間隔を指定してる
   letter-spacing: 10px;
-  // これはちょっとずらすためだけにつけてるスタイル。影とかつけるようにかな。
-  //margin-top: -60px;
-  //padding-left: 10px;
+  // 初めはopacityを0にして、見えないようにする。=>jsでopacitiyを1にすることで、見えるようにする
+  opacity: 0;
+  // jsでopacityが1に変更される時に、transitionでだんだん見えるようにする
+  transition: all 5.0s;
+  transition-delay: 1s;
 }
 
-.lato {
-  font-family: 'Lato', sans-serif;
-}

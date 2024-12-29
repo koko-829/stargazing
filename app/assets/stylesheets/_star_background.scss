@@ -1,0 +1,97 @@
+// 星を上に流すためのアニメーション
+@keyframes starUp {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-2000px);
+  }
+}
+
+// 星を下に流すためのアニメーション
+@keyframes starDown {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateY(2000px);
+  }
+}
+
+//　一旦星を非表示にするためのスタイル
+.star-hidden {
+  opacity: 0;
+}
+
+// JSで切り替えて表示するためのスタイル
+.star-show {
+  opacity: 1;
+  transition: opacity 6s;
+  transition-delay: 2s;
+}
+
+// multiple-box-shadow関数を定義する箇所
+@function multiple-box-shadow($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  @for $i from 2 through $n {
+    $value: '#{$value}, #{random(2000)}px #{random(2000)}px #fff';
+  }
+  @return unquote($value);
+}
+
+//　box-shadow:で配置する個数を決めるための変数
+$star-1: multiple-box-shadow(500);
+$star-2: multiple-box-shadow(100);
+$star-3: multiple-box-shadow(50);
+
+// それぞれの星のスタイル設定
+#stars1 {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: $star-1;
+  //animation: starUp 50s linear infinite ;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    box-shadow: $star-1;
+  }
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: $star-2;
+  //animation: starUp 100s linear infinite;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    box-shadow: $star-2;
+  }
+}
+
+#stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: $star-3;
+  //animation: starUp 150s linear infinite;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    box-shadow: $star-3;
+  }
+}

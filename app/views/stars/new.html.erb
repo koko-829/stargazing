@@ -1,9 +1,9 @@
 <div class= 'text-container'>
-  <%= turbo_frame_tag 'form-frame' do %>
-    <%= form_with model: @star, class: 'form-container' do |f| %>
-      <%= f.text_field :word, placeholder: '好きな言葉を教えてね', class: 'input-field' %>
-      <%= f.text_field :name, placeholder: '誰の名言かな？', class: 'input-field' %>
-      <%= f.submit '登録', class: 'submit' %>
-    <% end %>
+  <%= form_with model: @star, class: 'yomogiregular form-container' do |f| %>
+    <%= f.text_field :word, placeholder: '好きな言葉を教えてね', class: 'input-field' %>
+    <%= f.text_field :name, placeholder: '誰の名言かな？', class: 'input-field' %>
+    <%= f.submit '登録', class: 'submit' %>
   <% end %>
 </div>
+
+<%= render 'shared/star_background' %>

@@ -9,10 +9,17 @@
   // 直下の子要素をフレックスアイテムにして縦にならべるためのスタイル
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 // googleフォントよもぎ用スタイル
 .yomogi-regular {
   font-family: "Yomogi", serif;
   font-style: normal;
+}
+
+// googleフォントlato用スタイル
+.lato {
+  font-family: 'Lato', sans-serif;
 }

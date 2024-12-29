@@ -1,16 +1,23 @@
 .form-container {
   display: flex;
   flex-direction :column;
-  width: 40vw;
+  width: 40vw !important;
+  background-color: transparent;
 
   .input-field {
     font-size: 3rem;
     margin-bottom: 10px;
-    font-family: "Yomogi", serif;
-    font-style: normal;
+    //font-family: "Yomogi", serif;
+    //font-style: normal;
     //背景色を透明にする
     background-color: transparent;
     text-align: center;
-    color: #ffffffe8;
+    border-bottom: solid 0.2rem #ffffffe8;
   }
-}
+
+  .submit {
+    color: #ffffffe8;
+    text-align: right;
+    margin-right: 10%;
+  }
+  }

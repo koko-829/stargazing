@@ -1,5 +1,65 @@
-<div id="title">
-  <span class='gradation'>Gradation</span>
+<div class="text-container">
+  <div class="loader">
+    <span></span>
+    <span></span>
+    <span></span>
+    <h2 class="gradation lato">Now Loading...</h2>
+  </div>
+
+  <div class="title">
+  <span class='gradation'>Stargazing</span>
+  </div>
+  <%= render 'shared/next_button' %>
 </div>
 
+
+
+<div class="star-hidden">
+  <%= render 'shared/star_background' %>
+</div>
+
+<script>
+  // ページが読み込まれたら実行される処理
+  window.onload = function(){
+    // setTimeout(()=> {処理}, 時間)で、指定時間後に処理を実行できる
+    setTimeout(()=> {
+      // loaderクラスを消して、titleを見せるためのJSを書き込んでいく
+      // loaderクラスを取得するための変数を定義
+      let loader = document.querySelector('.loader');
+      // loaderクラスをloadedに変更するための処理
+      loader.classList.add('loaded');
+
+      // titleのクラスを取得する
+      let title = document.querySelector('.title');
+      // titleクラスのopacityをデフォルトの0から1にすることで、titleを表示させる
+      title.style.opacity = 1;
+
+      // star-hiddenクラスを取得する
+      let starHidden = document.querySelector('.star-hidden');
+      // star-hiddenクラスをstar-showに変更するための処理
+      starHidden.classList.add('star-show');
+
+      // tap-buttonのIDを取得する
+      let tapButton = document.getElementById('tap-button');
+      //tap-buttonにbutton-visibleクラスを追加する
+      tapButton.classList.remove('button-hidden');
+      tapButton.classList.add('button-visible-title');
+
+    }, 3000);
+  };
+
+  // tap-buttonをクリックした時にbutton-visibleクラスとbutton-hiddenクラスを入れ替える。
+  document.addEventListener('DOMContentLoaded', function() {
+    let tapButton = document.getElementById('tap-button');
+    //イベントリスナーを追加して実際にtap-button要素をクリックしたときの処理をつける。
+    tapButton.addEventListener('click', function() {
+      // button-visible-titleがついていた場合のクリック処理(button-hiddenをつける。)
+      if (tapButton.classList.contains('button-visible-title')) {
+        tapButton.classList.remove('button-visible-title');
+        tapButton.classList.add('button-hidden');
+      }
+    });
+  });
+
+</script>
 <%= render 'shared/loading' %>
