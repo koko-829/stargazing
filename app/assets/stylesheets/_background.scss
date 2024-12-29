@@ -1,0 +1,31 @@
+// アプリ全体の背景設定スタイルシート
+
+html {
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  //デフォルトのフォントサイズを10pxに設定するために62.5%に指定。各要素で1remあたり10pxになる
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+//　スマホサイズくらいのブレイクポイント768%までの場合は、
+// フォントサイズを50%にする
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 40%;
+  }
+}
+
+// タブレットサイズくらいのブレイクポイント1280pxまでの場合は、
+// フォントサイズを55%にする
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  html {
+    font-size: 62.5%;
+  }
+}

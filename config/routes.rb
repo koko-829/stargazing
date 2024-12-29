@@ -1,4 +1,28 @@
 Rails.application.routes.draw do
+  # localhost:3000のアクセス先指定
+  root to: 'practice#display0'
+  resources :stars, only: %i[index create new] do
+    collection do
+      get 'shuffle'
+    end
+  end
+
+  # viewのテンプレ確認用アクション
+  resources :practice do
+    collection do
+      get 'display1'
+      get 'display2'
+      get 'display3'
+      get 'display4'
+      get 'display5'
+    end
+  end
+
+  resources :template do
+    collection do
+      get 'form'
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

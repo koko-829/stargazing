@@ -1,0 +1,28 @@
+// サンプルとして使用するタイトルのフォントのスタイル
+
+#title {
+  // bodyを親要素として、中央に配置するためのスタイル
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  //これを指定しないと、要素の左上が中央になるため、title自身の幅と高さの半分、つまり左に50%、上に50%ずらすためのスタイル
+  transform: translate(-50%, -50%);
+  // 文字の色を白にするためのスタイル
+  color: #FFF;
+  // これを指定しないと、要素の中で文字が左寄りになってるため、中央に配置する。
+  text-align: center;
+  //ここで'Lato'を指定することで、Google Fontsからダウンロードしたフォントを使用してる
+  font-family: 'Lato', sans-serif;
+  // font-weightとfont-sizeの指定
+  font-weight: 300;
+  font-size: 5rem;
+  // 文字間隔を指定してる
+  letter-spacing: 10px;
+  // これはちょっとずらすためだけにつけてるスタイル。影とかつけるようにかな。
+  //margin-top: -60px;
+  //padding-left: 10px;
+}
+
+.lato {
+  font-family: 'Lato', sans-serif;
+}

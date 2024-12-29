@@ -1,0 +1,9 @@
+<%= turbo_frame_tag 'form_frame' do %>
+  <div class='result-container'>
+    <span class="star-word"><%= "#{@selected_star.word}" %></span>
+    <span class= "star-name">〜<%= "#{@selected_star.name}" %>〜</span>
+  </div>
+<% end %>
+
+
+<%# turbo_frame用に作ってみたけど、今は使用してない%>

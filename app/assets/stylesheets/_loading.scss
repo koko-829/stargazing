@@ -1,0 +1,70 @@
+.loading-area {
+  //画面全体の右下、右から10%、下から10%の位置に配置
+  position :absolute;
+  top : 95%;
+  left: 95%;
+  transform: translate(-100%, -100%);
+  color: white;
+  // 子要素のspanをflexboxにするための指定
+  display: flex;
+  justify-content: center;
+  // 子要素spanのそれぞれの間隔を指定するためのスタイル
+  gap: 5px;
+  // 領域から超えた部分は表示しないようにする
+  //overflow: hidden;
+
+  span {
+    // inline-blockでflexboxであるspanを横並びにする
+    display: inline-block;
+    font-size: 2.4rem;
+    animation: rotate 2s infinite linear;
+    // uppercaseは文字を大文字にするためのメソッド
+    text-transform: uppercase;
+  }
+
+  span:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  span:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  span:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  span:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+
+  span:nth-child(6) {
+    animation-delay: 0.5s;
+  }
+
+  span:nth-child(7) {
+    animation-delay: 0.6s;
+  }
+
+  span:nth-child(8) {
+    animation-delay: 0.7s;
+  }
+
+  span:nth-child(9) {
+    animation-delay: 0.8s;
+  }
+
+  span:nth-child(10) {
+    animation-delay: 0.9s;
+  }
+}
+
+@keyframes rotate {
+  70% {
+      transform: rotateX(0deg);
+  }
+
+  100% {
+      transform: rotateX(360deg);
+  }
+}
