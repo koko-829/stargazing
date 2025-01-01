@@ -44,6 +44,18 @@ $star-1: multiple-box-shadow(500);
 $star-2: multiple-box-shadow(100);
 $star-3: multiple-box-shadow(50);
 
+.stars1-animation {
+  animation: starUp 20s linear infinite;
+}
+
+.stars2-animation {
+  animation: starUp 30s linear infinite;
+}
+
+.stars3-animation {
+  animation: starUp 50s linear infinite;
+}
+
 // それぞれの星のスタイル設定
 #stars1 {
   width: 1px;

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # localhost:3000のアクセス先指定
-  root to: 'practice#display0'
+  root to: 'stars#new'
   resources :stars, only: %i[index create new] do
     collection do
       get 'shuffle'
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # viewのテンプレ確認用アクション
   resources :practice do
     collection do
+      get 'display0'
       get 'display1'
       get 'display2'
       get 'display3'

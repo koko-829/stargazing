@@ -9,8 +9,6 @@ class StarsController < ApplicationController
       @selected_star = Star.offset( rand(Star.count) ).first
       session[:star_id] = @selected_star.id
       redirect_to stars_path
-    else
-      render :new
     end
   end
 

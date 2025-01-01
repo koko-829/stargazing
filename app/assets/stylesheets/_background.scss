@@ -8,6 +8,7 @@ html {
   font-size: 62.5%;
   // 画面を一切スクロールさせない。もしはみ出る場合は、その要素を表示しない。
   overflow: hidden;
+
 }
 
 //　スマホサイズくらいのブレイクポイント768%までの場合は、
@@ -30,4 +31,25 @@ html {
   html {
     font-size: 62.5%;
   }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.overlay-visible {
+  z-index: 100;
+  opacity: 1;
+  transition: all 4s;
+}
+
+.overlay-hidden {
+  z-index: 0;
+  opacity: 0;
+  transition: all 4s;
 }

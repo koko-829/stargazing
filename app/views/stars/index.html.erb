@@ -1,8 +1,153 @@
-<div class='text-container yomogi-regular' >
-  <turbo-frame id="form_frame">
-    <div class='result-container'>
-      <span class="star-word"><%= "#{@selected_star.word}" %></span>
-      <span class= "star-name">〜<%= "#{@selected_star.name}" %>〜</span>
+<div class="overlay overlay-hidden"></div>
+<div class="display-wrapper">
+  <div class="display-container">
+
+    <div class="text-container">
+    <%= render 'shared/text_container' %>
+
+
+    <div class='result-container result-hidden yomogi-regular'>
+      <span class="star-word">「ゆるす」ことはしばしば、その者との関係が完結すること意味する。しかし「ゆるさない」という態度をとることで、両者の関係は維持されることになります。なぜでしょうか。「ゆるさない」と語ることによって、その者の存在は大きな「謎」をはらむことになるからです。 </span>
+      <span class="star-name">〜湊かなえ「告白」より〜</span>
     </div>
-  </turbo-frame>
+
+    </div>
+  </div>
 </div>
+
+<%= render 'shared/next_button' %>
+
+
+<div class="star">
+  <%= render 'shared/star_background' %>
+</div>
+
+<div class="loading-hidden">
+<%= render "shared/loading" %>
+</div>
+
+<div class="spotify-hidden">
+<%= render 'shared/spotify' %>
+</div>
+
+
+<script>
+//画面が表示されたら実行される処理
+document.addEventListener('DOMContentLoaded', function(){
+  setTimeout(()=> {
+    let text6 = document.querySelector('.text6-hidden');
+    text6.classList.add('text6-visible');
+  }, 500);
+  setTimeout(()=> {
+    let text6 = document.querySelector('.text6-visible');
+    text6.classList.remove('text6-visible');
+    let loading = document.querySelector('.loading-hidden');
+    loading.classList.remove('loading-hidden');
+    loading.classList.add('loading-visible');
+  }, 4000);
+
+    let stars1 = document.getElementById('stars1');
+    let stars2 = document.getElementById('stars2');
+    let stars3 = document.getElementById(`stars3`);
+    let overlay = document.querySelector('.overlay');
+
+  setTimeout(()=> {
+    stars1.classList.add('stars1-animation');
+    stars2.classList.add('stars2-animation');
+    stars3.classList.add('stars3-animation');
+  }, 6000);
+
+  setTimeout(()=> {
+    // overlayを表示させるため、opacityを0にする
+    overlay.classList.remove('overlay-hidden');
+    overlay.classList.add('overlay-visible');
+  }, 12000);
+
+  setTimeout(()=> {
+    stars1.classList.remove('stars1-animation');
+    stars2.classList.remove('stars2-animation');
+    stars3.classList.remove('stars3-animation');
+    overlay.classList.remove('overlay-visible');
+    overlay.classList.add('overlay-hidden');
+  }, 16000);
+
+  setTimeout(()=> {
+  let text7 = document.querySelector('.text7-hidden');
+  text7.classList.add('text7-visible');
+  let loading = document.querySelector('.loading-visible');
+  loading.classList.remove('loading-visible');
+  loading.classList.add('loading-hidden');
+
+  setTimeout(()=> {
+    let tapButton = document.getElementById('tap-button');
+    tapButton.classList.add('button-visible7');
+  }, 3000);
+  }, 18000);
+});
+
+// Loadingが終了してtap-buttonをクリックしてからの処理
+  document.addEventListener('DOMContentLoaded', function(){
+    // .star-wordの文字数が10文字以内の場合、font-sizeを大きくする
+    let starWord = document.querySelector('.star-word');
+    if (starWord.textContent.length <= 10) {
+      starWord.style.fontSize = '8rem';
+    }
+
+    let tapButton = document.getElementById('tap-button');
+    tapButton.addEventListener('click', function() {
+      // button-visible7がついていた場合のクリック処理
+      if (tapButton.classList.contains('button-visible7')) {
+        tapButton.classList.remove('button-visible7');
+        tapButton.classList.add('button-hidden');
+        let text7 = document.querySelector('.text7-visible');
+        text7.classList.remove('text7-visible');
+        let text8 = document.querySelector('.text8-hidden');
+        text8.classList.add('text8-visible');
+        setTimeout(()=> {
+          tapButton.classList.remove('button-hidden');
+          tapButton.classList.add('button-visible8');
+        }, 3000);
+      }
+
+    // text8ボタンを押した時、次にresult-containerを表示させる
+    else if (tapButton.classList.contains('button-visible8')){
+      tapButton.classList.remove('button-visible8');
+      tapButton.classList.add('button-hidden');
+      let text8 = document.querySelector('.text8-visible');
+      text8.classList.remove('text8-visible');
+      let result = document.querySelector('.result-container');
+      result.classList.remove('result-hidden');
+      result.classList.add('result-visible');
+      setTimeout(()=>{
+        tapButton.classList.remove('button-hidden');
+        tapButton.classList.add('button-visible-last');
+      }, 7000);
+    }
+
+    // button-visible-lastを押した時の処理。SpotifyとThank Youを表示する
+    else if (tapButton.classList.contains('button-visible-last')){
+      tapButton.classList.remove('button-visible-last');
+      tapButton.classList.add('button-hidden');
+      let result = document.querySelector('.result-visible');
+      result.classList.remove('result-visible');
+      result.classList.add('result-hidden');
+      // 手書き風フォントの表示
+      // spotifyの表示
+      setTimeout (()=> {
+        let spotify = document.querySelector('.spotify-hidden');
+        spotify.classList.remove('spotify-hidden');
+        spotify.classList.add('spotify-visible');
+        setTimeout(()=> {
+          let spotifyText = document.querySelector('.spotify-text');
+          spotifyText.classList.add('spotify-text-animation');
+        }, 2000);
+      }, 4000);
+
+
+      // 戻るボタンの表示
+      // 流れ星の表示
+      // 非表示ボタンの表示
+    }
+    });
+  })
+</script>

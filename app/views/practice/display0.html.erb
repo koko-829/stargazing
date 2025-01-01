@@ -1,65 +1,113 @@
-<div class="text-container">
-  <div class="loader">
-    <span></span>
-    <span></span>
-    <span></span>
-    <h2 class="gradation lato">Now Loading...</h2>
-  </div>
+<div class="overlay overlay-hidden"></div>
+<div class="display-wrapper">
+  <div class="display-container">
 
-  <div class="title">
-  <span class='gradation'>Stargazing</span>
+    <div class="text-container">
+    <%= render 'shared/text_container' %>
+
+
+    <div class='result-container result-hidden yomogi-regular'>
+      <span class="star-word">Be Humble</span>
+      <span class="star-name">〜Kendrick Lamar〜</span>
+    </div>
+
+    </div>
   </div>
-  <%= render 'shared/next_button' %>
 </div>
 
+<%= render 'shared/next_button' %>
 
 
-<div class="star-hidden">
+<div class="star">
   <%= render 'shared/star_background' %>
 </div>
 
+<div class="loading-hidden">
+<%= render "shared/loading" %>
+</div>
+
 <script>
-  // ページが読み込まれたら実行される処理
-  window.onload = function(){
-    // setTimeout(()=> {処理}, 時間)で、指定時間後に処理を実行できる
-    setTimeout(()=> {
-      // loaderクラスを消して、titleを見せるためのJSを書き込んでいく
-      // loaderクラスを取得するための変数を定義
-      let loader = document.querySelector('.loader');
-      // loaderクラスをloadedに変更するための処理
-      loader.classList.add('loaded');
+//画面が表示されたら実行される処理
+document.addEventListener('DOMContentLoaded', function(){
+  setTimeout(()=> {
+    let text6 = document.querySelector('.text6-hidden');
+    text6.classList.add('text6-visible');
+  }, 500);
+  setTimeout(()=> {
+    let text6 = document.querySelector('.text6-visible');
+    text6.classList.remove('text6-visible');
+    let loading = document.querySelector('.loading-hidden');
+    loading.classList.remove('loading-hidden');
+    loading.classList.add('loading-visible');
+  }, 4000);
 
-      // titleのクラスを取得する
-      let title = document.querySelector('.title');
-      // titleクラスのopacityをデフォルトの0から1にすることで、titleを表示させる
-      title.style.opacity = 1;
+    let stars1 = document.getElementById('stars1');
+    let stars2 = document.getElementById('stars2');
+    let stars3 = document.getElementById(`stars3`);
+    let overlay = document.querySelector('.overlay');
 
-      // star-hiddenクラスを取得する
-      let starHidden = document.querySelector('.star-hidden');
-      // star-hiddenクラスをstar-showに変更するための処理
-      starHidden.classList.add('star-show');
+  setTimeout(()=> {
+    stars1.classList.add('stars1-animation');
+    stars2.classList.add('stars2-animation');
+    stars3.classList.add('stars3-animation');
+  }, 6000);
 
-      // tap-buttonのIDを取得する
-      let tapButton = document.getElementById('tap-button');
-      //tap-buttonにbutton-visibleクラスを追加する
-      tapButton.classList.remove('button-hidden');
-      tapButton.classList.add('button-visible-title');
+  setTimeout(()=> {
+    // overlayを表示させるため、opacityを0にする
+    overlay.classList.remove('overlay-hidden');
+    overlay.classList.add('overlay-visible');
+  }, 12000);
 
-    }, 3000);
-  };
+  setTimeout(()=> {
+    stars1.classList.remove('stars1-animation');
+    stars2.classList.remove('stars2-animation');
+    stars3.classList.remove('stars3-animation');
+    overlay.classList.remove('overlay-visible');
+    overlay.classList.add('overlay-hidden');
+  }, 16000);
 
-  // tap-buttonをクリックした時にbutton-visibleクラスとbutton-hiddenクラスを入れ替える。
-  document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(()=> {
+  let text7 = document.querySelector('.text7-hidden');
+  text7.classList.add('text7-visible');
+  let loading = document.querySelector('.loading-visible');
+  loading.classList.remove('loading-visible');
+  loading.classList.add('loading-hidden');
+
+  setTimeout(()=> {
     let tapButton = document.getElementById('tap-button');
-    //イベントリスナーを追加して実際にtap-button要素をクリックしたときの処理をつける。
-    tapButton.addEventListener('click', function() {
-      // button-visible-titleがついていた場合のクリック処理(button-hiddenをつける。)
-      if (tapButton.classList.contains('button-visible-title')) {
-        tapButton.classList.remove('button-visible-title');
-        tapButton.classList.add('button-hidden');
-      }
-    });
-  });
+    tapButton.classList.add('button-visible7');
+  }, 3000);
+  }, 18000);
+});
 
+// Loadingが終了してtap-buttonをクリックしてからの処理
+  document.addEventListener('DOMContentLoaded', function(){
+    let tapButton = document.getElementById('tap-button');
+    tapButton.addEventListener('click', function() {
+      // button-visible7がついていた場合のクリック処理
+      if (tapButton.classList.contains('button-visible7')) {
+        tapButton.classList.remove('button-visible7');
+        tapButton.classList.add('button-hidden');
+        let text7 = document.querySelector('.text7-visible');
+        text7.classList.remove('text7-visible');
+        let text8 = document.querySelector('.text8-hidden');
+        text8.classList.add('text8-visible');
+        setTimeout(()=> {
+          tapButton.classList.remove('button-hidden');
+          tapButton.classList.add('button-visible8');
+        }, 3000);
+      }
+
+    // text8ボタンを押した時、次にresult-containerを表示させる
+    else if (tapButton.classList.contains('button-visible8')){
+      tapButton.classList.remove('button-visible8');
+      tapButton.classList.add('button-hidden');
+      let text8 = document.querySelector('.text8-visible');
+      text8.classList.remove('text8-visible');
+      let result = document.querySelector('.result-container');
+      result.classList.remove('result-hidden');
+      result.classList.add('result-visible');
+    }
+    });
+  })
 </script>
-<%= render 'shared/loading' %>
