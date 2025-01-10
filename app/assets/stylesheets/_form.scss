@@ -1,32 +1,159 @@
-#form {
+.form-container {
+  max-width: 450px;
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%
-}
+  z-index: 10;
 
-.form-container {
-  display: flex;
-  flex-direction :column;
-  //background-color: transparent;
-  justify-content: center;
-  margin: 0 auto;
-
-  .input-field {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    //background-color: transparent;
-    text-align: center;
-    border-bottom: solid 0.2rem #ffffffe8;
+  @media (max-width: 500px) {
+    max-width: 400px;
   }
 }
 
-.submit {
-  color: #ffffffe8;
-  text-align: right;
-  margin-right: 10%;
-  font-size: 3.0rem;
+// formの外枠部分
+#contact {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  //opacity: 0.9;
+  padding: 25px;
+  //backdrop-filter: blur(9px);
+  border-radius: 10px;
+
+  .form-title {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 200;
+		margin-bottom: 20px;
+    //文字の幅をもう少し開ける
+    letter-spacing: 1px;
+  }
+
+  .form-description {
+    margin: 10px 0;
+    padding-top: 10px;
+    font-size: 15px;
+    color: #cecece;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    opacity: 0.6;
+    line-height: 1.5;
+    height: 150px;
+    position: relative;
+
+    .description-0,
+    .description-1,
+    .description-2,
+    .desctiption-3 {
+      position: absolute;
+    }
+  }
+
+// formの説明欄変更用
+  .form-description-hidden {
+    opacity: 0;
+    //下に下がるアニメーションをつける
+    @keyframes slide-down{
+      0% {
+        transform: translateY(0%);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+      }
+    animation: slide-down 0.6s;
+    // ここでtransitionをallで設定してる場合でも、実質かかってるのはopacityだけ。
+    transition: all 0.6s;
+  }
+
+  .form-description-visible {
+    opacity: 1;
+    @keyframes slide-up{
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(0%);
+      }
+      }
+    animation: slide-up 0.6s;
+    transition: all 0.6s;
+  }
+
+  .word-input,
+  .name-input {
+    width: 100%;
+    border: 2px solid #38495abc;
+    background: #ffffffdc;
+    margin: 10px 0 0 0;
+    padding: 10px;
+    transition: border-color 0.3s ease-in-out;
+    box-sizing: border-box;
+    font-size: 14px;
+
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      outline-color: #38495abc;
+      // アウトラインをデフォルトよりも細くする
+      outline-width: 0.5px;
+    }
+  }
+
+  .word-input {
+    height: 100px;
+    resize: none;
+    // 勝手な改行を入れないようにする
+    line-break: anywhere;
+    // テキストエリアを超えて改行できないようにする
+    overflow: hidden;
+    white-space: break-spaces;
+  }
+
+  #contact-submit {
+    width: 100%;
+    border: none;
+    background: #38495abc;
+    color: #FFF;
+    margin: 20px 0 0;
+    padding: 25px 10px;
+    font-size: 15px;
+    transition: background-color 0.3s ease-in-out;
+    // activeでない状態での透明度、うっすらした感じ
+    opacity: 0.2;
+    transition: all 0.3s ease-in-out;
+  }
+
+  // #contact-submitにsubmit-buttonがついた時(登録ボタンが有効になった)のスタイル
+  // contact-submitにネストで登録してしまうと.submit-button-activeが小要素
+  // として適用されてしまうから、チェーンで繋ぐような感じ
+  #contact-submit.submit-button-active {
+    opacity: 1;
+    cursor: pointer;
+    text-transform: uppercase;
+    //box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: #6786a6bc;
+    }
+
+    &:active {
+      transform: scale(0.99);
+      transition: all 0.2s;
+    }
+  }
+}
+
+::placeholder {
+  color: #888;
+}
+
+.word-param,
+.name-param {
+  color: #cecece9c;
+  font-size: 12px;
+  margin-bottom: 5px 0;
 }
 
 .form-visible {
@@ -39,98 +166,146 @@
 .form-hidden {
   visibility: hidden;
   opacity: 0;
-  transition: all 1s;
+  transition: all 2s;
 }
 
 
-// form用スタイル
 
-.page {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: absolute;
-  place-content: center;
-  width: 100%;
-}
+// form案2用(boxが画面幅に応じて縦になるやつ)
 
-// @media (max-width: 767px) {
-//   .page {
-//     height: auto;
-//     margin-bottom: 20px;
-//     padding-bottom: 20px;
+// #form {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 60%
+// }
+
+// .form-container {
+//   display: flex;
+//   flex-direction :column;
+//   //background-color: transparent;
+//   justify-content: center;
+//   margin: 0 auto;
+
+//   .input-field {
+//     font-size: 3rem;
+//     margin-bottom: 10px;
+//     //background-color: transparent;
+//     text-align: center;
+//     border-bottom: solid 0.2rem #ffffffe8;
 //   }
 // }
 
-.container {
-  display: flex;
-  height: 320px;
-  margin: 0 auto;
-  width: 640px;
-  justify-content: center;
-}
+// .submit {
+//   color: #ffffffe8;
+//   text-align: right;
+//   margin-right: 10%;
+//   font-size: 3.0rem;
+// }
 
-@media (max-width: 767px) {
-  .container {
-    flex-direction: column;
-    height: 640px;
-    width: 320px;
-    align-items: center;
-  }
-}
+// .form-visible {
+//   visibility: visible;
+//   opacity: 1;
+//   transition: all 2s;
+//   transition-delay: 2s;
+// }
 
-.left {
-  background-color: #f0f0f5; /* 背景色を設定 */
-  opacity: 0.7;
-  height: 80%;
-  margin: auto 0;
-  position: relative;
-  width: 40%;
-  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
-  border-radius: 10px 0 0 10px;
-}
+// .form-hidden {
+//   visibility: hidden;
+//   opacity: 0;
+//   transition: all 1s;
+// }
 
-@media (max-width: 767px) {
-  .left {
-    height: 80%;
-    width: 80%;
-    max-height: 256px;
-    margin: 0;
-    border-radius: 10px 10px 0 0;
-  }
-}
 
-.right {
-  opacity: 0.4;
-  background: #474A59;
-  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
-  color: #F1F1F2;
-  position: relative;
-  width: 50%;
-  border: solid 0.2rem #ffffffe8;
-  border-radius: 10px;
-}
+// // form用スタイル
 
-@media (max-width: 767px) {
-  .right {
-    height: 100%;
-    width: 100%;
-    max-height: 320px;
-  }
-}
+// .page {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+//   position: absolute;
+//   place-content: center;
+//   width: 100%;
+// }
 
-// box内のコンテント入れる際のスタイル
-.login {
-  font-size: 30px;
-  font-weight: 900;
-  margin: 50px 40px 0px;
-}
+// // @media (max-width: 767px) {
+// //   .page {
+// //     height: auto;
+// //     margin-bottom: 20px;
+// //     padding-bottom: 20px;
+// //   }
+// // }
 
-.eula {
-  color: #999;
-  font-size: 14px;
-  // フォントサイズの1.5倍の行間
-  line-height: 1.5;
-  margin: 20px 40px 40px 40px;
+// .container {
+//   display: flex;
+//   height: 320px;
+//   margin: 0 auto;
+//   width: 640px;
+//   justify-content: center;
+// }
 
-}
+// @media (max-width: 767px) {
+//   .container {
+//     flex-direction: column;
+//     height: 640px;
+//     width: 320px;
+//     align-items: center;
+//   }
+// }
+
+// .left {
+//   background-color: #f0f0f5; /* 背景色を設定 */
+//   opacity: 0.7;
+//   height: 80%;
+//   margin: auto 0;
+//   position: relative;
+//   width: 40%;
+//   box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+//   border-radius: 10px 0 0 10px;
+// }
+
+// @media (max-width: 767px) {
+//   .left {
+//     height: 80%;
+//     width: 80%;
+//     max-height: 256px;
+//     margin: 0;
+//     border-radius: 10px 10px 0 0;
+//   }
+// }
+
+// .right {
+//   opacity: 0.4;
+//   background: #474A59;
+//   box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+//   color: #F1F1F2;
+//   position: relative;
+//   width: 50%;
+//   border: solid 0.2rem #ffffffe8;
+//   border-radius: 10px;
+// }
+
+// @media (max-width: 767px) {
+//   .right {
+//     height: 100%;
+//     width: 100%;
+//     max-height: 320px;
+//   }
+// }
+
+// // box内のコンテント入れる際のスタイル
+// .login {
+//   font-size: 30px;
+//   font-weight: 900;
+//   margin: 50px 40px 0px;
+// }
+
+// .eula {
+//   color: #999;
+//   font-size: 14px;
+//   // フォントサイズの1.5倍の行間
+//   line-height: 1.5;
+//   margin: 20px 40px 40px 40px;
+
+// }

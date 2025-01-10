@@ -8,13 +8,13 @@
   }
 }
 
-// 星を下に流すためのアニメーション
-@keyframes starDown {
+// 星を左に動かすためのアニメーション
+@keyframes starLeft {
   0% {
     transform: translateX(0px);
   }
   100% {
-    transform: translateY(2000px);
+    transform: translateX(-2000px);
   }
 }
 
@@ -44,16 +44,26 @@ $star-1: multiple-box-shadow(500);
 $star-2: multiple-box-shadow(100);
 $star-3: multiple-box-shadow(50);
 
-.stars1-animation {
+// 星が上がるアニメーション
+.stars1-up-animation {
+  animation: starUp 10s linear infinite;
+}
+.stars2-up-animation {
   animation: starUp 20s linear infinite;
 }
-
-.stars2-animation {
-  animation: starUp 30s linear infinite;
+.stars3-up-animation {
+  animation: starUp 50s linear infinite;
 }
 
-.stars3-animation {
-  animation: starUp 50s linear infinite;
+// 星が左に流れるアニメーション
+.stars1-left-animation {
+  animation: starLeft 200s linear infinite ;
+}
+.stars2-left-animation {
+  animation: starLeft 300s linear infinite;
+}
+.stars3-left-animation {
+  animation: starLeft 600s linear infinite;
 }
 
 // それぞれの星のスタイル設定
@@ -62,7 +72,15 @@ $star-3: multiple-box-shadow(50);
   height: 1px;
   background: transparent;
   box-shadow: $star-1;
-  //animation: starUp 50s linear infinite ;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 2000px;
+    width: 1px;
+    height: 1px;
+    box-shadow: $star-1;
+  }
 
   &:after {
     content: "";
@@ -79,7 +97,15 @@ $star-3: multiple-box-shadow(50);
   height: 2px;
   background: transparent;
   box-shadow: $star-2;
-  //animation: starUp 100s linear infinite;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 2000px;
+    width: 2px;
+    height: 2px;
+    box-shadow: $star-2;
+  }
 
   &:after {
     content: "";
@@ -96,7 +122,15 @@ $star-3: multiple-box-shadow(50);
   height: 3px;
   background: transparent;
   box-shadow: $star-3;
-  //animation: starUp 150s linear infinite;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 2000px;
+    width: 3px;
+    height: 3px;
+    box-shadow: $star-3;
+  }
 
   &:after {
     content: "";

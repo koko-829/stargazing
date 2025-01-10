@@ -1,51 +1,38 @@
+// リセット用のCSSのためのスタイルシートやけど、結局これ使わないほうがいいかも。
 //@import 'reset';
+
+// font-awesomeのアイコン使用のための読み込み
+@import "font-awesome";
+// 全体的な背景と暗転用のoverlay記載のスタイルシート
 @import 'background';
-@import 'title';
-@import 'gradation';
-@import 'text';
-@import 'loading';
-@import 'form';
-@import 'spotify';
+// アプリ冒頭のローディング画面のスタイルシート
 @import 'now_loading';
+// 背景に表示する星に関してのスタイルシート
 @import 'star_background';
+// タイトル文字のスタイルシート
+@import 'title';
+//　文字にグラデーションつけるためのスタイルシート。gradationクラスをつけたら、適用できる。
+@import 'gradation';
+// アプリ内の進行文字表示のためのスタイルシート。
+// フォントとdisplay-containerの指定もここに入ってる。
+@import 'text';
+// 暗転時に右下に表示する回転ローディングのスタイル。
+@import 'loading';
+// フォーム用のスタイルシート
+@import 'form';
+// 言葉がランダム表示される結果画面のスタイルシート
+@import 'result';
+// spotify埋め込みのiframeをいじるためのスタイルシート
+@import 'spotify';
+// アプリ進行時に表示する「tap here」ボタンのスタイルシート
 @import 'next_button';
-
-.result-container {
-  display: flex;
-  flex-direction: column;
-  //justify-content: center;
-  //1行の最大幅を画面幅の70%にしたい
-  width: 80vw;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  //少し上にずらす
-  transform: translate(0%, -50%);
-
-
-  .star-word {
-    font-size: 3rem;
-  }
-
-  .star-name {
-    font-size: 2rem;
-    margin-left: 40%;
-    margin-top: 2rem;
-  }
-}
-
-.result-hidden {
-  opacity: 0;
-  visibility: hidden;
-  transition: all 1s;
-  transition-delay: 0.6s;
-}
-
-.result-visible {
-  opacity: 1;
-  visibility: visible;
-  transition: all 7s;
-  transition-delay: 3s;
-}
+// アプリ終了時に表示する「return」アイコンのスタイルシート
+@import 'return_button';
+// 非表示ボタンと流れ星発生ボタンのスタイルシート
+@import 'menu_icon';
+// 流れ星ランダムで発生させるためのスタイルシート
+@import 'shooting_star';
+// 手書き風フォントアニメーションのスタイルシート
+@import 'svg';
 
 

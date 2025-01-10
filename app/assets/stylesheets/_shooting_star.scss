@@ -1,0 +1,131 @@
+// 色の指定用
+$star-blue: #00f;
+$star-red: #f00;
+$star-green: #0f0;
+$star-yellow: #ff0;
+$star-purple: #f0f;
+$star-orange: #f90;
+
+.shooting-star {
+
+  span {
+    display: flex;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #FFF;
+    position: absolute;
+    top: 10%;
+    left: 90%;
+    transform-origin: 100% 0;
+    animation-direction: normal;
+    opacity: 0;
+
+    &::after {
+      // もし擬似要素にposition: absoluteが付いた場合、元要素にposition指定があるかどうかに関わらず、基準は必ず元要素(.shooting-star)になる。
+      // ついてない場合は、元要素と完全に重なる状態。
+      content: '';
+      border: 2px solid;
+      border-width: 2px 150px 2px 150px;
+      border-color: transparent transparent transparent #ffffff;
+      transform: rotate(-45deg) translate3d(1px, -1px, 0);
+      transform-origin: 0% 100%;
+    }
+
+    // spanごとにtopとleftを指定して位置を変える。
+    // animation-durationつけておいたら、星の速度変えれる？
+    &:nth-child(2) {
+      top:20%;
+      left:50%;
+      animation-duration: 0.3s;
+      background: $star-blue;
+
+      &::after {
+        border-color: transparent transparent transparent $star-blue;
+      }
+    }
+
+    &:nth-child(3) {
+      top: 40%;
+      left: 100%;
+      background: $star-red;
+
+      &::after {
+        border-color: transparent transparent transparent $star-red;
+      }
+    }
+
+    &:nth-child(4) {
+      top: 50%;
+      left: 50%;
+      animation-duration: 0.6s;
+      background: $star-green;
+
+      &::after {
+        border-color: transparent transparent transparent $star-green;
+      }
+    }
+
+    &:nth-child(5) {
+      top: 30%;
+      left: 62%;
+      background: $star-yellow;
+
+      &::after {
+        border-color: transparent transparent transparent $star-yellow;
+      }
+    }
+
+    &:nth-child(6) {
+      top: 68%;
+      left: 68%;
+      background: $star-purple;
+
+      &::after {
+        border-color: transparent transparent transparent $star-purple;
+      }
+    }
+
+    &:nth-child(7) {
+      top: 10%;
+      left: 37%;
+    }
+
+    &:nth-child(8) {
+      top: 60%;
+      left: 80%;
+    }
+
+    &:nth-child(9) {
+      top: 40%;
+      left: 23%;
+    }
+
+    &:nth-child(10) {
+      top: 37%;
+      left: 45%;
+  }
+}
+}
+
+.shooting-star-animation {
+  animation: shooting-star-animation 1s ease-out;
+}
+
+@keyframes shooting-star-animation {
+  // 最初の段階ではopacity0で見えない状態、位置も初期状態
+  0% {
+    opacity: 0;
+    transform: scale(0) translate3d(0, 0, 0);
+  }
+  // 50%の段階でopacity1で見える状態になる。かつ位置はx軸方向に-200px(左方向),y軸方向に200px(下方向)に移動
+  50% {
+    opacity: 1;
+    transform: scale(1) translate3d(-300px, 300s, 0);
+  }
+  // 100%(アニメーション終了段階)でopacity0にすることで、だんだん見えないようにする。位置はx軸方向に-300px(左方向),y軸方向に300px(下方向)に移動
+  100% {
+    opacity: 0;
+    transform: scale(1) translate3d(-400px, 400px, 0);
+  }
+}

@@ -1,0 +1,37 @@
+.result-container {
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  //1行の最大幅を画面幅の70%にしたい
+  width: 80vw;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  //少し上にずらす
+  transform: translate(0%, -50%);
+
+
+  .star-word {
+    font-size: 3rem;
+  }
+
+  .star-name {
+    font-size: 2rem;
+    margin-left: 40%;
+    margin-top: 2rem;
+  }
+}
+
+.result-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+  transition-delay: 0.6s;
+}
+
+.result-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: all 7s;
+  transition-delay: 3s;
+}

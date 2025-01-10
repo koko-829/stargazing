@@ -1,0 +1,38 @@
+.menu-icon-container {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 500px){
+    top: 5%;
+    right: 5%;
+  }
+}
+
+i.fa {
+  font-size: 30px;
+  color: gray;
+  margin-left: 20px;
+  cursor: pointer;
+  //margin-bottom: 20px;
+  &:hover {
+    transform: scale(1.1);
+    color: rgba(255, 255, 255, 0.824);
+  }
+  &:active {
+    transform: translateY(3px);
+  }
+  transition: transform 0.3s;
+}
+
+.menu-icon-1,
+.menu-icon-2 {
+  transition: all 0.3s ease;
+}
+
+.menu-icon-hidden {
+  visibility: hidden;
+  opacity: 0;
+}

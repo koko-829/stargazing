@@ -1,0 +1,102 @@
+// 戻るページのアニメーション
+$arrow-main-color: rgb(106, 106, 106);
+$arrow-sub-color: rgba(255, 255, 255, 0.666);
+
+.return-button-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.arrow-container{
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  right: 0;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+
+// 画面幅が小さい時に戻るボタンを小さくしてちょっと上にずらす
+@media (max-width: 800px) {
+  .arrow-container {
+    bottom: 25%;
+    transform: scale(0.6);
+    transition: all 0.3s ease;
+  }
+}
+
+.arrow-1{
+  width: 100px;
+  height: 100px;
+  background: $arrow-main-color;
+  opacity: 0.5;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.arrow-2 {
+  width: 60px;
+  height: 60px;
+  background: $arrow-main-color;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  display: table;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  // カーソルが重なった時に少し拡大する
+  &:hover {
+    transform: scale(1.1); /* 拡大率を1.1倍に指定 */
+  }
+
+  // クリック時に少し下に移動する
+  &:active {
+    transform: translateY(3px);
+  }
+
+  // &:before {
+  //   width: 52px;
+  //   height: 52px;
+  //   content: "";
+  //   border: 2px solid $arrow-sub-color;
+  //   border-radius: 50%;
+  //   position: absolute;
+  //   top: 2px;
+  //   left: 2px;
+  //   transition: transform 0.3s ease;
+  // }
+
+  i.fa {
+    font-size: 30px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: $arrow-sub-color;
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Custom Animate.css */
+
+@keyframes return-zoom {
+  0% {
+    opacity: 0;
+    transform: scale3d(.4, .4, .4);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.return-zoom {
+  animation: return-zoom 2s infinite;
+}

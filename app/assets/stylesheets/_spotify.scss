@@ -7,10 +7,8 @@
 }
 
 .spotify-visible {
-  opacity: 1;
   visibility: visible;
-  transition: all 1s;
-  transition-delay: 0.6s;
+  opacity: 1;
 }
 
 .spotify-container {
@@ -21,7 +19,9 @@
   flex-direction: column;
   transform: translate(0%, -100%);
   width: 320px;
-}
+  transition: all 0.3s;
+  visibility: visible;
+  }
 
 .spotify-text {
   font-size: 12px;
@@ -30,10 +30,7 @@
   margin-right: 10px;
   text-align: right;
   opacity: 0;
-}
-
-.spotify-text-animation {
-  animation: bounceIn 1s both;
+  transition: opacity 1s;
 }
 
 .spotify {
@@ -41,9 +38,17 @@
   border-radius:12px;
   width: 320px;
   height:120px;
-  background-color: transparent;
+  //background-color: transparent;
   border: none;
-  opacity: 0.6;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.bounce-in-animation {
+  animation: bounceIn 1s both;
 }
 
 @keyframes bounceIn{
