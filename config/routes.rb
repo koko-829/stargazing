@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "stars#new"
   resources :stars, only: %i[create new] do
     collection do
-      get 'result'
+    get "result"
     end
   end
 
