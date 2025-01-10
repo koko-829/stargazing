@@ -8,11 +8,11 @@ class StarsController < ApplicationController
     if @star.save
       @selected_star = Star.offset(rand(Star.count)).first
       session[:star_id] = @selected_star.id
-      redirect_to stars_path
+      redirect_to result_stars_path
     end
   end
 
-  def index
+  def result
     @selected_star = Star.find(session[:star_id])
   end
 end

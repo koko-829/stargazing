@@ -1,12 +1,18 @@
 version: 2
+
+# Bundlerの依存関係を更新する設定
 updates:
-- package-ecosystem: bundler
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
-- package-ecosystem: github-actions
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
+  - package-ecosystem: "bundler"  # Bundlerを使用する
+    directory: "/"                  # ルートディレクトリ
+    schedule:
+      interval: "daily"             # 毎日更新チェック
+    ignore:
+      - dependency-name: "rails"    # Railsのアップデートを無視
+        versions: ["8.x"]            # バージョン8.xに関する更新を無視
+
+  # GitHub Actionsの依存関係を更新する設定
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
