@@ -6,7 +6,7 @@ class StarsController < ApplicationController
   def create
     @star = Star.new(stars_params)
     if @star.save
-      @selected_star = Star.offset( rand(Star.count) ).first
+      @selected_star = Star.offset(rand(Star.count)).first
       session[:star_id] = @selected_star.id
       redirect_to stars_path
     end

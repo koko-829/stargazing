@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # localhost:3000のアクセス先指定
-  root to: 'stars#new'
+  root to: "stars#new"
   resources :stars, only: %i[index create new] do
   end
 
