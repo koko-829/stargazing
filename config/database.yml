@@ -16,6 +16,10 @@ test:
 
 production:
   <<: *default
-  database: stargazing_production
-  username: stargazing
-  password: <%= ENV["STARGAZING_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
