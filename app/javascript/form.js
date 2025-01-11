@@ -1,5 +1,5 @@
 // _form.html.erb内の要素に対するjsファイル
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbo:load', function() {
   // form全体の要素を取得
   let form = document.querySelector('#contact');
   let wordInput = document.querySelector('.word-input');
@@ -58,7 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // 使用できる文字の正規表現パターンを設定しておく
-  let regex = /^[A-Za-z0-9０-９ぁ-んァ-ン一-龯〜「」、。・ー！？（）’—!?&,\s.'":%％＆【】"+]+$/;
+  let regex = /^[A-Za-z0-9０-９ぁ-んァ-ン一-龯々〆〤〜「」、。・ー！？（）()’—!?&,\s.'":%％＆【】"+]+$/;
+
 
   // wordInputのバリデーション
   wordInput.addEventListener('input', function(){

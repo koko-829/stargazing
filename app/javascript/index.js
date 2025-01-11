@@ -1,64 +1,67 @@
 // stars/index.html.erbで発火させるためのファイル
 
 //画面が表示されたら実行される処理
-document.addEventListener('DOMContentLoaded', function(){
-  setTimeout(()=> {
-    let text4 = document.querySelector('.text4-hidden');
-    text4.classList.add('text4-visible');
-  }, 500);
-  setTimeout(()=> {
-    let text4 = document.querySelector('.text4-visible');
-    text4.classList.remove('text4-visible');
-    let loading = document.querySelector('.loading-hidden');
-    loading.classList.remove('loading-hidden');
-    loading.classList.add('loading-visible');
-  }, 4000);
+document.addEventListener('turbo:load', function(){
+  let text4 = document.querySelector('.text4-hidden');
+  if (text4) {
+    setTimeout(()=> {
+      let text4 = document.querySelector('.text4-hidden');
+      text4.classList.add('text4-visible');
+    }, 500);
+    setTimeout(()=> {
+      let text4 = document.querySelector('.text4-visible');
+      text4.classList.remove('text4-visible');
+      let loading = document.querySelector('.loading-hidden');
+      loading.classList.remove('loading-hidden');
+      loading.classList.add('loading-visible');
+    }, 4000);
 
-    let stars1 = document.getElementById('stars1');
-    let stars2 = document.getElementById('stars2');
-    let stars3 = document.getElementById(`stars3`);
-    let overlay = document.querySelector('.overlay');
+      let stars1 = document.getElementById('stars1');
+      let stars2 = document.getElementById('stars2');
+      let stars3 = document.getElementById(`stars3`);
+      let overlay = document.querySelector('.overlay');
 
-  setTimeout(()=> {
-    stars1.classList.add('stars1-up-animation');
-    stars2.classList.add('stars2-up-animation');
-    stars3.classList.add('stars3-up-animation');
-  }, 6000);
+    setTimeout(()=> {
+      stars1.classList.add('stars1-up-animation');
+      stars2.classList.add('stars2-up-animation');
+      stars3.classList.add('stars3-up-animation');
+    }, 6000);
 
-  setTimeout(()=> {
-    // overlayを表示させるため、opacityを0にする
-    overlay.classList.remove('overlay-hidden');
-    overlay.classList.add('overlay-visible');
-  }, 12000);
+    setTimeout(()=> {
+      // overlayを表示させるため、opacityを0にする
+      overlay.classList.remove('overlay-hidden');
+      overlay.classList.add('overlay-visible');
+    }, 12000);
 
-  setTimeout(()=> {
-    stars1.classList.remove('stars1-up-animation');
-    stars1.classList.add('stars1-left-animation');
-    stars2.classList.remove('stars2-up-animation');
-    stars2.classList.add('stars2-left-animation');
-    stars3.classList.remove('stars3-up-animation');
-    stars3.classList.add('stars3-left-animation');
-    overlay.classList.remove('overlay-visible');
-    overlay.classList.add('overlay-hidden');
-  }, 16000);
+    setTimeout(()=> {
+      stars1.classList.remove('stars1-up-animation');
+      stars1.classList.add('stars1-left-animation');
+      stars2.classList.remove('stars2-up-animation');
+      stars2.classList.add('stars2-left-animation');
+      stars3.classList.remove('stars3-up-animation');
+      stars3.classList.add('stars3-left-animation');
+      overlay.classList.remove('overlay-visible');
+      overlay.classList.add('overlay-hidden');
+    }, 16000);
 
-  // 時間経過でtext5が表示されるようにする
-  setTimeout(()=> {
-  let text5 = document.querySelector('.text5-hidden');
-  text5.classList.add('text5-visible');
-  let loading = document.querySelector('.loading-visible');
-  loading.classList.remove('loading-visible');
-  loading.classList.add('loading-hidden');
+    // 時間経過でtext5が表示されるようにする
+    setTimeout(()=> {
+    let text5 = document.querySelector('.text5-hidden');
+    text5.classList.add('text5-visible');
+    let loading = document.querySelector('.loading-visible');
+    loading.classList.remove('loading-visible');
+    loading.classList.add('loading-hidden');
 
-  setTimeout(()=> {
-    let tapButton = document.getElementById('tap-button');
-    tapButton.classList.add('button-visible5');
-  }, 3000);
-  }, 18000);
+    setTimeout(()=> {
+      let tapButton = document.getElementById('tap-button');
+      tapButton.classList.add('button-visible5');
+    }, 3000);
+    }, 18000);
+  }
 });
 
 // Loadingが終了してtap-buttonをクリックしてからの処理
-  document.addEventListener('DOMContentLoaded', function(){
+  document.addEventListener('turbo:load', function(){
     // .star-wordの文字数が10文字以内の場合、font-sizeを大きくする
     let starWord = document.querySelector('.star-word');
     if (starWord.textContent.length <= 10) {
@@ -154,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
-  document.addEventListener('DOMContentLoaded', function(){
+  document.addEventListener('turbo:load', function(){
   let eyesIcon = document.querySelector('.fa-eye');
   let spotifyContainer = document.querySelector('.spotify-container');
   let arrowContainer = document.querySelector('.arrow-container');
@@ -187,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   // 流れ星を表示させたい
-  document.addEventListener('DOMContentLoaded', function(){
+  document.addEventListener('turbo:load', function(){
     let starIcon = document.querySelector('.menu-icon-2');
     starIcon.addEventListener('click', function(){
       // 一旦、shooting-starのspanを全部取得する

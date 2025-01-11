@@ -2,7 +2,7 @@
 
 
 // ページが読み込まれたら実行される処理
-window.onload = function(){
+document.addEventListener('turbo:load', function() {
   // setTimeout(()=> {処理}, 時間)で、指定時間後に処理を実行できる
   setTimeout(()=> {
     // loaderクラスを消して、titleを見せるためのJSを書き込んでいく
@@ -29,10 +29,10 @@ window.onload = function(){
     tapButton.classList.add('button-visible-title');
 
   }, 3000);
-};
+});
 
 // tap-buttonをクリックした時にbutton-visibleクラスとbutton-hiddenクラスを入れ替える。
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbo:load', function() {
   let tapButton = document.getElementById('tap-button');
   //イベントリスナーを追加して実際にtap-button要素をクリックしたときの処理をつける。
   tapButton.addEventListener('click', function() {
