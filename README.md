@@ -14,6 +14,24 @@ https://stargazing-app.onrender.com/
 
 <br>
 
+**(追記)アプリと一緒に楽しめる音楽プレイリストを作成しました！**
+
+> アプリの最後の画面でspotifyのプレイリストの埋め込みが表示されます。<br>
+もしよろしければアプリ画面と一緒に楽しんでいただけると幸いです(*´꒳`*)
+
+
+<br>
+
+
+## ※ご注意
+
+- スマホサイズでのスタイルの崩れが多いのが現状です。
+- パソコンやタブレットでの使用をお勧めします。スマホ等の画面サイズでのデザインは修正予定です。
+- ブラウザによっては記載しているjavascriptのコードが発火しない可能性がございます。
+
+
+<br>
+
 ## 主な開発環境
 - Docker 4.33.0
 - Rails 7.2.2.1
@@ -51,15 +69,3 @@ https://stargazing-app.onrender.com/
 - [Contact form with validation(CodePen)](https://codepen.io/codersdesign/pen/OJJJePm)
 - [CSSとJavascriptでローディングアニメーションを作ってみよう - CSS/Javascriptチュートリアル -(YouTube)](https://youtu.be/9ZzmovKnq4A?si=9KwD9a3Glh-p7mmr)
 - [CSSとSVGで手書き風のアニメーションを作る方法(ブログ)](https://linksbase.net/css-svg-animation/)
-
-
-<br>
-
-## ※ご注意
-
-- スマホサイズでのスタイルの崩れが多いのが現状です。
-- パソコンやタブレットでの使用をお勧めします。スマホ等の画面サイズでのデザインは修正予定です。
-- ブラウザによっては記載しているjavascriptのコードが発火しない可能性がございます。
-
-
-<br>
