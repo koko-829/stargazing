@@ -20,6 +20,10 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= favicon_link_tag('favicon.ico') %>
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Stargazing App" />
+    <meta name="twitter:image" content="<%= asset_path('twitter_card.png') %>" />
   </head>
 
   <body>
