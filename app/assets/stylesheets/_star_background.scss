@@ -72,6 +72,8 @@ $star-3: multiple-box-shadow(50);
   height: 1px;
   background: transparent;
   box-shadow: $star-1;
+  // 画面からはみ出た星を非表示にする
+  overflow: hidden;
 
   &:before {
     content: "";
@@ -97,6 +99,7 @@ $star-3: multiple-box-shadow(50);
   height: 2px;
   background: transparent;
   box-shadow: $star-2;
+  overflow: hidden;
 
   &:before {
     content: "";
@@ -122,6 +125,7 @@ $star-3: multiple-box-shadow(50);
   height: 3px;
   background: transparent;
   box-shadow: $star-3;
+  overflow: hidden;
 
   &:before {
     content: "";

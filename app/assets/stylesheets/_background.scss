@@ -1,8 +1,9 @@
 // アプリ全体の背景設定スタイルシート
 
-html {
+html, body {
   //　高さを画面の100%に設定
   height: 100%;
+  width: 100%;
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   //デフォルトのフォントサイズを10pxに設定するために62.5%に指定。各要素で1remあたり10pxになる
   font-size: 62.5%;
