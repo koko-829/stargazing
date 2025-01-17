@@ -1,4 +1,4 @@
-// stars/index.html.erbで発火させるためのファイル
+// stars/result.html.erbで発火させるためのファイル
 
 //画面が表示されたら実行される処理
 document.addEventListener('turbo:load', function(){

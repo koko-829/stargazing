@@ -34,8 +34,10 @@
 .loaded {
   // 要素が透明になる=見えなくなる
   opacity: 0;
+  // opacityだけやと要素が裏でずっと動いてる状態なってしまうから、visibility: hidden;も追加
+  visibility: hidden;
   // 0.8秒かけて、見えなくなるようにする。opacityを指定することで、0までゆっくり透明になる。
-  transition: opacity 0.3s;
+  transition: all 0.3s;
 }
 
 @keyframes animate {
