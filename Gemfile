@@ -43,6 +43,9 @@ gem "font-awesome-sass"
 # rails-adminを使う
 gem "rails_admin"
 
+# meta-tagsでタグ管理する
+gem "meta-tags"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

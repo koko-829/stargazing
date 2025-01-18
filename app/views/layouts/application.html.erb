@@ -21,12 +21,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= favicon_link_tag('favicon.ico') %>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Stargazing App" />
-    <meta name="twitter:image" content="<%= asset_path('x_card.png') %>" />
-    <meta property="og:url" content="https://stargazing-app.onrender.com" />
-    <meta property="og:title" content="Stargazing App" />
-    <meta property="og:image" content="<%= asset_path('x_card.png') %>" />
+    <%= display_meta_tags(default_meta_tags) %>
   </head>
 
   <body>
