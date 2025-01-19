@@ -95,6 +95,26 @@ document.addEventListener('turbo:load', function() {
       wordParam.textContent = '連続したスペースもしくは改行が含まれています';
       activeWord = false;
     }
+
+    // ddやeeみたいな連続の繰り返しを避ける
+    // 入力文字が2文字で連続してる場合の条件分岐
+    // (.)は改行以外の全ての文字を表してメタ文字。
+    // /(.)\1+/はメタ文字をキャプチャしたのち後方参照して連続している文字を示した正規表現
+    else if (wordInput.value.length === 2 && wordInput.value.match(/(.)\1+/)) {
+      wordParam.style.color = 'yellow';
+      wordParam.textContent = '文章で入力してください'
+      activeWord = false;
+    }
+
+    // 上のバリデーションからもし、入力文字が2文字っていう条件を無くしたら、appreciateみたいなごく一般的な文字まで弾いてしまう。
+    // やけど入力文字が十分であっても3文字以上連続している場合も意味もない言葉の場合が多いと思うのでそっちも弾いておく。
+    // /(.)\1{2,}/って書き方にすると最初の文字に加えてさらに2文字が連続してる、つまり3文字以上連続してるケース。例えばdddなんかがマッチする。
+    else if (wordInput.value.match(/(.)\1{2,}/)) {
+      wordParam.style.color = 'yellow';
+      wordParam.textContent = '同じ文字が3回以上連続しています';
+      activeWord = false;
+    }
+
     else {
       activeWord = true;
       wordParam.style.color = 'white';
@@ -130,6 +150,12 @@ document.addEventListener('turbo:load', function() {
       nameParam.style.color = 'yellow';
       nameParam.textContent = '連続したスペースが含まれています';
       activeName = false;
+    }
+
+    else if (nameInput.value.match(/(.)\1{2,}/)) {
+      nameParam.style.color = 'yellow';
+      nameParam.textContent = '同じ文字が3回以上連続しています';
+      activeWord = false;
     }
 
     else {
