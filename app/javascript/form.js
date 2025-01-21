@@ -31,6 +31,19 @@ document.addEventListener('turbo:load', function() {
     }
   }
 
+  // wordInputがバリデーション引っかかった時のエラー処理をまとめておく
+  function wordError(message) {
+    wordParam.style.color = 'yellow';
+    wordParam.textContent = `${message}`;
+    activeWord = false;
+  }
+
+  function nameError(message) {
+    nameParam.style.color = 'yellow';
+    nameParam.textContent = `${message}`;
+    activeName = false;
+  }
+
 // リアルタイムのバリデーション用の処理
   // 入力状態にバリデーションをつけて全て通った場合にsubmitボタンを有効にする
 
@@ -71,29 +84,24 @@ document.addEventListener('turbo:load', function() {
 
     // イベントの処理を書く
     if (!wordInput.value || !wordInput.value.match(/\S/g)){
-      wordParam.style.color = 'yellow';
-      wordParam.textContent = '入力してください';
-      activeWord = false;
+      // wordParam.style.color = 'yellow';
+      // wordParam.textContent = '入力してください';
+      // activeWord = false;
+      // 上の処理を関数wordErrorに定義してまとめてるからそれを呼び出す
+      wordError('入力してください');
     }
 
+    else if (wordInput.value.match(/\s\s/)) {
+      wordError('連続したスペースもしくは改行が含まれています');
+    }
     // 正規表現パターンに適しているかの確認
     else if (!regex.test(wordInput.value)) {
-      wordParam.style.color = 'yellow';
-      wordParam.textContent = '使用できない文字が含まれています';
-      activeWord = false;
+      wordError(`使用できない文字が含まれています`);
     }
     // 文字が2文字以上じゃない時の処理
     // 非空文字が2文字以上連続して入力されていない限り、2文字以上入力してくださいと表示する
     else if (!wordInput.value.match(/\S\S/)) {
-      wordParam.style.color = 'yellow';
-      wordParam.textContent = '2文字以上で入力してください';
-      activeWord = false;
-    }
-
-    else if (wordInput.value.match(/\s\s/)) {
-      wordParam.style.color = 'yellow';
-      wordParam.textContent = '連続したスペースもしくは改行が含まれています';
-      activeWord = false;
+      wordError('2文字以上で入力してください');
     }
 
     // ddやeeみたいな連続の繰り返しを避ける
@@ -101,18 +109,14 @@ document.addEventListener('turbo:load', function() {
     // (.)は改行以外の全ての文字を表してメタ文字。
     // /(.)\1+/はメタ文字をキャプチャしたのち後方参照して連続している文字を示した正規表現
     else if (wordInput.value.length === 2 && wordInput.value.match(/(.)\1+/)) {
-      wordParam.style.color = 'yellow';
-      wordParam.textContent = '文章で入力してください'
-      activeWord = false;
+      wordError('文章で入力してください');
     }
 
     // 上のバリデーションからもし、入力文字が2文字っていう条件を無くしたら、appreciateみたいなごく一般的な文字まで弾いてしまう。
     // やけど入力文字が十分であっても3文字以上連続している場合も意味もない言葉の場合が多いと思うのでそっちも弾いておく。
     // /(.)\1{2,}/って書き方にすると最初の文字に加えてさらに2文字が連続してる、つまり3文字以上連続してるケース。例えばdddなんかがマッチする。
     else if (wordInput.value.match(/(.)\1{2,}/)) {
-      wordParam.style.color = 'yellow';
-      wordParam.textContent = '同じ文字が3回以上連続しています';
-      activeWord = false;
+      wordError('同じ文字が3回以上連続しています');
     }
 
     else {
@@ -128,34 +132,24 @@ document.addEventListener('turbo:load', function() {
   nameInput.addEventListener('input', function (){
     // イベントの処理を書く
     if (!nameInput.value || !nameInput.value.match(/\S/g)){
-      nameParam.style.color = 'yellow';
-      nameParam.textContent = '入力してください';
-      activeName = false;
+      nameError('入力してください');
     }
 
     // 正規表現パターンに適しているかの確認
     else if (!regex.test(nameInput.value)) {
-      nameParam.style.color = 'yellow';
-      nameParam.textContent = '使用できない文字が含まれています';
-      activeName = false;
+      nameError('使用できない文字が含まれています');
     }
 
     else if (nameInput.value.length >= 31) {
-      nameParam.style.color = 'yellow';
-      nameParam.textContent = '30文字以内で入力してください';
-      activeName = false;
+      nameError('30文字以内で入力してください');
     }
 
     else if (nameInput.value.match(/\s\s/)) {
-      nameParam.style.color = 'yellow';
-      nameParam.textContent = '連続したスペースが含まれています';
-      activeName = false;
+      nameError('連続したスペースが含まれています');
     }
 
     else if (nameInput.value.match(/(.)\1{2,}/)) {
-      nameParam.style.color = 'yellow';
-      nameParam.textContent = '同じ文字が3回以上連続しています';
-      activeWord = false;
+      nameError('同じ文字が3回以上連続しています');
     }
 
     else {
