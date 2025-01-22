@@ -1,9 +1,17 @@
+.star-container {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
 // 星を上に流すためのアニメーション
 @keyframes starUp {
   0% {
     transform: translateY(0px);
   }
   100% {
+    // 上に2000px上昇する
     transform: translateY(-2000px);
   }
 }
@@ -14,23 +22,28 @@
     transform: translateX(0px);
   }
   100% {
+    // 左に2000px移動する
     transform: translateX(-2000px);
   }
 }
 
 //　一旦星を非表示にするためのスタイル
+//　ページアクセス時には非表示にして、JSでこの要素取得してそこにstar-showクラス追加することで表示されるようにする。
 .star-hidden {
   opacity: 0;
 }
 
-// JSで切り替えて表示するためのスタイル
+// JSで追加された時にopacity0から1に6秒間かけて徐々に表示されるようにする。
 .star-show {
   opacity: 1;
   transition: opacity 6s;
+  // JS発火してから2秒後にtransition開始されるようにする。
   transition-delay: 2s;
 }
 
 // multiple-box-shadow関数を定義する箇所
+// box-shadowに指定する値をランダムで生成するための関数。
+//　background: 60px 40px #FFFみたいな感じの場合は、要素から右に60px、下に40pxの位置に白い影がつく感じ。
 @function multiple-box-shadow($n) {
   $value: '#{random(2000)}px #{random(2000)}px #FFF';
   @for $i from 2 through $n {
@@ -40,11 +53,15 @@
 }
 
 //　box-shadow:で配置する個数を決めるための変数
+//　上で定義した関数を使用。引数の数分画面に表示される。
 $star-1: multiple-box-shadow(500);
 $star-2: multiple-box-shadow(100);
 $star-3: multiple-box-shadow(50);
 
 // 星が上がるアニメーション
+// linearでアニメーションの速度は一定
+// infinite指定で永久的にアニメーション繰り返されるようにする。
+// 秒数指定でアニメーション1回にかかる時間指定。短い方が速い。
 .stars1-up-animation {
   animation: starUp 10s linear infinite;
 }
@@ -70,11 +87,13 @@ $star-3: multiple-box-shadow(50);
 #stars1 {
   width: 1px;
   height: 1px;
+  // 要素自体は透明にして、box-shadowで影をランダムに配置することで、星に見えるようにしてる。
   background: transparent;
   box-shadow: $star-1;
   // 画面からはみ出た星を非表示にする
   overflow: hidden;
 
+  // 擬似要素で2000px右に配置しとくことで、left-animationアニメーション実行時に星が途切れないようにする。
   &:before {
     content: "";
     position: absolute;
@@ -84,6 +103,7 @@ $star-3: multiple-box-shadow(50);
     box-shadow: $star-1;
   }
 
+  // 擬似要素で2000px下に配置しとくことで、up-animationアニメーション実行時に星が途切れないように見せる。
   &:after {
     content: "";
     position: absolute;
