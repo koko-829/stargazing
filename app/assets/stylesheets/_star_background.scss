@@ -1,9 +1,10 @@
-.star-container {
-  position: relative;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-}
+// これを_star_background.html.erbで囲んでおく。解決していないため一旦リセット
+// .star-container {
+//   position: relative;
+//   overflow: hidden;
+//   width: 100vw;
+//   height: 100vh;
+// }
 
 // 星を上に流すためのアニメーション
 @keyframes starUp {
