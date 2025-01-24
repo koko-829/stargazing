@@ -17,17 +17,19 @@ document.addEventListener('turbo:load', function() {
     title.classList.remove('title-hidden');
     title.classList.add('title-visible');
 
-    // star-hiddenクラスを取得する
-    let starHidden = document.querySelector('.star-hidden');
-    // star-hiddenクラスをstar-showに変更するための処理
-    starHidden.classList.add('star-show');
+    setTimeout(()=> {
+      // star-hiddenクラスを取得する
+      let starHidden = document.querySelector('.star-hidden');
+      // star-hiddenクラスをstar-showに変更するための処理
+      starHidden.classList.add('star-show');
 
-    // tap-buttonのIDを取得する
-    let tapButton = document.getElementById('tap-button');
-    //tap-buttonにbutton-visibleクラスを追加する
-    tapButton.classList.remove('button-hidden');
-    tapButton.classList.add('button-visible-title');
-
+      setTimeout(()=> {
+        let tapButton = document.getElementById('tap-button');
+        //tap-buttonにbutton-visibleクラスを追加する
+        tapButton.classList.remove('button-hidden');
+        tapButton.classList.add('button-visible-title');
+      },4000);
+    }, 2500);
   }, 3000);
 });
 

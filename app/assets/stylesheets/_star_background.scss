@@ -1,10 +1,10 @@
-// これを_star_background.html.erbで囲んでおく。解決していないため一旦リセット
-// .star-container {
-//   position: relative;
-//   overflow: hidden;
-//   width: 100vw;
-//   height: 100vh;
-// }
+.star-container {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
 
 // 星を上に流すためのアニメーション
 @keyframes starUp {
@@ -37,9 +37,7 @@
 // JSで追加された時にopacity0から1に6秒間かけて徐々に表示されるようにする。
 .star-show {
   opacity: 1;
-  transition: opacity 6s;
-  // JS発火してから2秒後にtransition開始されるようにする。
-  transition-delay: 2s;
+  transition: all 5s;
 }
 
 // multiple-box-shadow関数を定義する箇所
