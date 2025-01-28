@@ -14,12 +14,12 @@
     <%= yield :head %>
 
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= favicon_link_tag('favicon.ico') %>
     <%= favicon_link_tag('apple-touch-icon.png', rel: "apple-touch-icon") %>
     <%= favicon_link_tag("android-touch-icon.png", rel: "icon") %>
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
 
     <%= display_meta_tags(default_meta_tags) %>
   </head>
