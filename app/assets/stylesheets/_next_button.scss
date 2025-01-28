@@ -72,61 +72,21 @@ $button-color: #38495a;
   //transition-delay: 0.3s;
 }
 
-//title画面用のvisibleスタイル
+// リファクタリング用
 .button-visible-title {
   visibility: visible;
   opacity: 1;
   transition: all 2s;
 }
 
-.button-visible1 {
-  visibility: visible;
-  opacity:1;
-  transition: all 1s ease;
-}
-
-.button-visible2 {
-  visibility: visible;
-  opacity:1;
-  transition: all 1s ease;
-}
-
-.button-visible3 {
-  visibility: visible;
-  opacity:1;
-  transition: all 1s ease;
-}
-
-.button-visible4 {
-  visibility: visible;
-  opacity:1;
-  transition: all 1s ease;
-}
-
-.button-visible5 {
-  visibility: visible;
-  opacity:1;
-  transition: all 1s ease;
-}
-
-.button-visible6 {
-  visibility: visible;
-  opacity:1;
-  transition: all 1s ease;
-}
-
-.button-visible7 {
-  visibility: visible;
-  opacity:1;
-  transition: all 1s ease;
-}
-
-.button-visible8 {
-  visibility: visible;
-  opacity:1;
-  transition: all 1s ease;
-}
-
+.button-visible1,
+.button-visible2,
+.button-visible3,
+.button-visible4,
+.button-visible5,
+.button-visible6,
+.button-visible7,
+.button-visible8,
 .button-visible-last {
   visibility: visible;
   opacity:1;
