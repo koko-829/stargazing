@@ -1,7 +1,7 @@
 .loading-area {
   //画面全体の右下、右から10%、下から10%の位置に配置
   position :absolute;
-  top : 95%;
+  top: 95%;
   left: 95%;
   transform: translate(-100%, -100%);
   color: white;
@@ -13,6 +13,12 @@
   // 領域から超えた部分は表示しないようにする
   //overflow: hidden;
   z-index: 1000;
+
+  // スマホサイズのとき、もう少し右下に配置できるようにしたい。
+  // 横の配置はそのままでOKそうやから縦の位置だけ上から98%くらい
+  @media screen and(max-width: 500px){
+    top: 98%;
+  }
 
   span {
     // inline-blockでflexboxであるspanを横並びにする
