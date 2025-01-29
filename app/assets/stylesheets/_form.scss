@@ -43,7 +43,7 @@
     .description-0,
     .description-1,
     .description-2,
-    .desctiption-3 {
+    .description-3 {
       position: absolute;
     }
   }
@@ -88,7 +88,7 @@
     padding: 10px;
     transition: border-color 0.3s ease-in-out;
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 16px;
 
 
     &:hover,
@@ -168,144 +168,3 @@
   opacity: 0;
   transition: all 2s;
 }
-
-
-
-// form案2用(boxが画面幅に応じて縦になるやつ)
-
-// #form {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   width: 60%
-// }
-
-// .form-container {
-//   display: flex;
-//   flex-direction :column;
-//   //background-color: transparent;
-//   justify-content: center;
-//   margin: 0 auto;
-
-//   .input-field {
-//     font-size: 3rem;
-//     margin-bottom: 10px;
-//     //background-color: transparent;
-//     text-align: center;
-//     border-bottom: solid 0.2rem #ffffffe8;
-//   }
-// }
-
-// .submit {
-//   color: #ffffffe8;
-//   text-align: right;
-//   margin-right: 10%;
-//   font-size: 3.0rem;
-// }
-
-// .form-visible {
-//   visibility: visible;
-//   opacity: 1;
-//   transition: all 2s;
-//   transition-delay: 2s;
-// }
-
-// .form-hidden {
-//   visibility: hidden;
-//   opacity: 0;
-//   transition: all 1s;
-// }
-
-
-// // form用スタイル
-
-// .page {
-//   display: flex;
-//   flex-direction: column;
-//   height: 100%;
-//   position: absolute;
-//   place-content: center;
-//   width: 100%;
-// }
-
-// // @media (max-width: 767px) {
-// //   .page {
-// //     height: auto;
-// //     margin-bottom: 20px;
-// //     padding-bottom: 20px;
-// //   }
-// // }
-
-// .container {
-//   display: flex;
-//   height: 320px;
-//   margin: 0 auto;
-//   width: 640px;
-//   justify-content: center;
-// }
-
-// @media (max-width: 767px) {
-//   .container {
-//     flex-direction: column;
-//     height: 640px;
-//     width: 320px;
-//     align-items: center;
-//   }
-// }
-
-// .left {
-//   background-color: #f0f0f5; /* 背景色を設定 */
-//   opacity: 0.7;
-//   height: 80%;
-//   margin: auto 0;
-//   position: relative;
-//   width: 40%;
-//   box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
-//   border-radius: 10px 0 0 10px;
-// }
-
-// @media (max-width: 767px) {
-//   .left {
-//     height: 80%;
-//     width: 80%;
-//     max-height: 256px;
-//     margin: 0;
-//     border-radius: 10px 10px 0 0;
-//   }
-// }
-
-// .right {
-//   opacity: 0.4;
-//   background: #474A59;
-//   box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
-//   color: #F1F1F2;
-//   position: relative;
-//   width: 50%;
-//   border: solid 0.2rem #ffffffe8;
-//   border-radius: 10px;
-// }
-
-// @media (max-width: 767px) {
-//   .right {
-//     height: 100%;
-//     width: 100%;
-//     max-height: 320px;
-//   }
-// }
-
-// // box内のコンテント入れる際のスタイル
-// .login {
-//   font-size: 30px;
-//   font-weight: 900;
-//   margin: 50px 40px 0px;
-// }
-
-// .eula {
-//   color: #999;
-//   font-size: 14px;
-//   // フォントサイズの1.5倍の行間
-//   line-height: 1.5;
-//   margin: 20px 40px 40px 40px;
-
-// }
