@@ -97,4 +97,19 @@ document.addEventListener('turbo:load', function() {
       form.classList.add('form-visible');
     }
   });
+
+  // formを送信した時に,デフォルト送信をキャンセルして、formを非表示にしてから、送信を行う。
+  let contactForm = document.getElementById('contact');
+  contactForm.addEventListener('submit', function(event){
+    // デフォルトの送信をキャンセル。
+    event.preventDefault();
+    // formを非表示にする。
+    let formVisible = document.querySelector('.form-visible');
+    formVisible.classList.remove('form-visible');
+    formVisible.classList.add('form-hidden');
+    // 3秒後に送信処理を行う。
+    setTimeout(() => {
+      contactForm.submit();
+    }, 2000);
+  });
 });
