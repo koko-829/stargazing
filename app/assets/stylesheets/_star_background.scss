@@ -90,7 +90,7 @@ $star-3: multiple-box-shadow(50);
   background: transparent;
   box-shadow: $star-1;
   // 画面からはみ出た星を非表示にする
-  overflow: hidden;
+  //overflow: hidden;
 
   // 擬似要素で2000px右に配置しとくことで、left-animationアニメーション実行時に星が途切れないようにする。
   &:before {
@@ -118,7 +118,7 @@ $star-3: multiple-box-shadow(50);
   height: 2px;
   background: transparent;
   box-shadow: $star-2;
-  overflow: hidden;
+  //overflow: hidden;
 
   &:before {
     content: "";
@@ -144,7 +144,7 @@ $star-3: multiple-box-shadow(50);
   height: 3px;
   background: transparent;
   box-shadow: $star-3;
-  overflow: hidden;
+  //overflow: hidden;
 
   &:before {
     content: "";
