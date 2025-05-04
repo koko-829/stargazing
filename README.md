@@ -62,7 +62,7 @@ https://stargazing-app.onrender.com/
 <br>
 
 ## 開発にあたって主に参考にしたデザイン
-※ 利用したソースコードのライセンスは、`[LICENSES.md]([url](https://github.com/koko-829/stargazing/blob/409c863a03405127a6f8ad85effc9713d5ebd9ef/LICENSES.md))`にて記載しています。
+※ 利用したソースコードのライセンスは、[LICENSES.md](https://github.com/koko-829/stargazing/blob/409c863a03405127a6f8ad85effc9713d5ebd9ef/LICENSES.md)にて記載しています。
 - [Parallax Star background in CSS(CodePen)](https://codepen.io/sarazond/pen/LYGbwj)
 - [Scroll Down Arrow(CodePen)](https://codepen.io/Hoebink/pen/YwpxMW)
 - [Single Element Shooting Stars(CodePen)](https://codepen.io/adamp33/pen/zYQprX)
