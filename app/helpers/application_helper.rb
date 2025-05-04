@@ -4,7 +4,7 @@ module ApplicationHelper
       # site: 'Stargazing App',
       # siteとtitleの違いがいまいちわかんない。同じなら同じで良いのか？
       # 「なんとか診断メーカー」みたいな名前のアプリならサイト名とアプリ名違うのはわかるねんけど今回みたいな感じやったら一緒でも良いの？
-      title: "Stargazing App",
+      title: "Stargazing",
       # サイト名とタイトル名を逆にするかどうか。trueやったら「タイトル名 | サイト名」になる？
       reverse: true,
       charset: "utf-8",
