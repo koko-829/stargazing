@@ -15,6 +15,10 @@ class StarsController < ApplicationController
   def result
     @selected_star = Star.find(session[:star_id])
   end
+
+  # あとで削除。挙動確認用ファイル。
+  def template
+  end
 end
 
 private

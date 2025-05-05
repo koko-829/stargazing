@@ -86,9 +86,11 @@ document.addEventListener('turbo:load', function() {
     if (!wordInput.value || !wordInput.value.match(/\S/g)){
       // wordParam.style.color = 'yellow';
       // wordParam.textContent = '入力してください';
-      // activeWord = false;
       // 上の処理を関数wordErrorに定義してまとめてるからそれを呼び出す
-      wordError('入力してください');
+      if (wordParam.textContent == '✔︎正常に入力されました' || wordParam.textContent == '2文字以上で入力してください'){
+        wordError('入力してください');
+      }
+      activeWord = false;
     }
 
     else if (wordInput.value.match(/\s\s/)) {
@@ -101,7 +103,11 @@ document.addEventListener('turbo:load', function() {
     // 文字が2文字以上じゃない時の処理
     // 非空文字が2文字以上連続して入力されていない限り、2文字以上入力してくださいと表示する
     else if (!wordInput.value.match(/\S\S/)) {
-      wordError('2文字以上で入力してください');
+      //wordError('2文字以上で入力してください');
+      if (wordParam.textContent == '✔︎正常に入力されました' || wordParam.textContent == '入力してください'){
+        wordError('2文字以上で入力してください');
+      }
+      activeWord = false;
     }
 
     // ddやeeみたいな連続の繰り返しを避ける
@@ -121,11 +127,23 @@ document.addEventListener('turbo:load', function() {
 
     else {
       activeWord = true;
-      wordParam.style.color = 'white';
+      wordParam.style.color = '#00FF00';
       wordParam.textContent = '✔︎正常に入力されました';
     }
 
     activeDescription(formDescription1);
+  });
+
+  wordInput.addEventListener('blur', function(){
+    if (!wordInput.value || !wordInput.value.match(/\S/g)){
+      // wordParam.style.color = 'yellow';
+      // wordParam.textContent = '入力してください';
+      // activeWord = false;
+      // 上の処理を関数wordErrorに定義してまとめてるからそれを呼び出す
+      wordError('入力してください');
+    } else if (!wordInput.value.match(/\S\S/)) {
+      wordError('2文字以上で入力してください');
+    }
   });
 
   // nameInputのバリデーション
@@ -154,13 +172,18 @@ document.addEventListener('turbo:load', function() {
 
     else {
       activeName = true;
-      nameParam.style.color = 'white';
+      nameParam.style.color = '#00FF00';
       nameParam.textContent = '✔︎正常に入力されました';
     }
 
     activeDescription(formDescription2);
   });
 
+  nameInput.addEventListener('blur', function(){
+    if (!nameInput.value || !nameInput.value.match(/\S/g)){
+      nameError('入力してください');
+    }
+  });
 
 // description用の処理
 
