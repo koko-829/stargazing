@@ -13,7 +13,11 @@ class StarsController < ApplicationController
   end
 
   def result
-    @selected_star = Star.find(session[:star_id])
+    if session[:star_id].nil?
+      redirect_to root_path
+    else
+      @selected_star = Star.find(session[:star_id])
+    end
   end
 
   # あとで削除。挙動確認用ファイル。
