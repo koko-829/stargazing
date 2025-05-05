@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :stars, only: %i[create new] do
     collection do
     get "result"
-    get "template"
     end
   end
 
