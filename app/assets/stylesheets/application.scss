@@ -1,38 +1,35 @@
 // リセット用のCSSのためのスタイルシートやけど、結局これ使わないほうがいいかも。
-//@import 'reset';
+//@use 'reset';
 
-// font-awesomeのアイコン使用のための読み込み
-@import "font-awesome";
 // 全体的な背景と暗転用のoverlay記載のスタイルシート
-@import 'background';
+@use 'background';
 // アプリ冒頭のローディング画面のスタイルシート
-@import 'now_loading';
+@use 'now_loading';
 // 背景に表示する星に関してのスタイルシート
-@import 'star_background';
+@use 'star_background';
 // タイトル文字のスタイルシート
-@import 'title';
+@use 'title';
 //　文字にグラデーションつけるためのスタイルシート。gradationクラスをつけたら、適用できる。
-@import 'gradation';
+@use 'gradation';
 // アプリ内の進行文字表示のためのスタイルシート。
 // フォントとdisplay-containerの指定もここに入ってる。
-@import 'text';
+@use 'text';
 // 暗転時に右下に表示する回転ローディングのスタイル。
-@import 'loading';
+@use 'loading';
 // フォーム用のスタイルシート
-@import 'form';
+@use 'form';
 // 言葉がランダム表示される結果画面のスタイルシート
-@import 'result';
+@use 'result';
 // spotify埋め込みのiframeをいじるためのスタイルシート
-@import 'spotify';
+@use 'spotify';
 // アプリ進行時に表示する「tap here」ボタンのスタイルシート
-@import 'next_button';
+@use 'next_button';
 // アプリ終了時に表示する「return」アイコンのスタイルシート
-@import 'return_button';
+@use 'return_button';
 // 非表示ボタンと流れ星発生ボタンのスタイルシート
-@import 'menu_icon';
+@use 'menu_icon';
 // 流れ星ランダムで発生させるためのスタイルシート
-@import 'shooting_star';
+@use 'shooting_star';
 // 手書き風フォントアニメーションのスタイルシート
-@import 'svg';
-
+@use 'svg';
 

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
-    "build:css": "sass app/assets/stylesheets:app/assets/builds"
+    "build:css": "sass app/assets/stylesheets:app/assets/builds --watch"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",

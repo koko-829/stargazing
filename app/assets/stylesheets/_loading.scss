@@ -16,7 +16,7 @@
 
   // スマホサイズのとき、もう少し右下に配置できるようにしたい。
   // 横の配置はそのままでOKそうやから縦の位置だけ上から98%くらい
-  @media screen and(max-width: 500px){
+  @media screen and (max-width: 500px) {
     top: 98%;
   }
 
