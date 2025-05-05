@@ -141,16 +141,21 @@ document.addEventListener('turbo:load', function(){
       Arrow.classList.add('bounce-in-animation');
       }, 3000);
 
-      // メニューアイコンの表示
-      setTimeout(()=> {
+      setTimeout(() => {
         let menuIcon1 = document.querySelector('.menu-icon-1');
         menuIcon1.classList.remove('menu-icon-hidden');
         menuIcon1.classList.add('bounce-in-animation');
 
-        setTimeout(()=> {
-        let menuIcon2 = document.querySelector('.menu-icon-2');
-        menuIcon2.classList.remove('menu-icon-hidden');
-        menuIcon2.classList.add('bounce-in-animation');
+        setTimeout(() => {
+          let menuIcon2 = document.querySelector('.menu-icon-2');
+          menuIcon2.classList.remove('menu-icon-hidden');
+          menuIcon2.classList.add('bounce-in-animation');
+
+          setTimeout(() => {
+            let menuIcon3 = document.querySelector('.menu-icon-3');
+            menuIcon3.classList.remove('menu-icon-hidden');
+            menuIcon3.classList.add('bounce-in-animation');
+          }, 200);
         }, 200);
       }, 3500);
     }

@@ -4,18 +4,18 @@
   right: 5%;
   display: flex;
   justify-content: center;
-  height: 30px;
+  gap: 20px;
 
   @media (max-width: 500px){
-    top: 5%;
-    right: 5%;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
-i.fa {
+i.fa,
+i.fa-brands {
   font-size: 30px;
   color: gray;
-  margin-left: 20px;
   cursor: pointer;
   //margin-bottom: 20px;
   &:hover {
@@ -29,7 +29,8 @@ i.fa {
 }
 
 .menu-icon-1,
-.menu-icon-2 {
+.menu-icon-2,
+.menu-icon-3 {
   transition: all 0.3s ease;
 }
 
