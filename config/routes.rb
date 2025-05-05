@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
-  # localhost:3000のアクセス先指定
   root to: "stars#new"
   resources :stars, only: %i[create new] do
     collection do
