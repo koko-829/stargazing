@@ -335,7 +335,6 @@ DEPENDENCIES
   rails_admin
   rubocop-rails-omakase
   sass-rails (>= 6)
-  sassc-rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails
